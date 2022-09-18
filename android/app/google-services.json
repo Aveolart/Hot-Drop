@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "806499409143",
+    "firebase_url": "https://hotdrop-5f134-default-rtdb.firebaseio.com",
+    "project_id": "hotdrop-5f134",
+    "storage_bucket": "hotdrop-5f134.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806499409143:android:8295729db7f7ed820a47f2",
+        "android_client_info": {
+          "package_name": "com.example.hot_drop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "806499409143-ugpff38q759aqbghuhcs230fih76aljo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hot_drop",
+            "certificate_hash": "c65497378e84def433b613de6f06fd9e807db7e5"
+          }
+        },
+        {
+          "client_id": "806499409143-qlhjea8emcpscs18cac0uqv2bbq8d85p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBv3aPHCGWaBLa0qHUQehi3zGtAGeffv-I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "806499409143-qlhjea8emcpscs18cac0uqv2bbq8d85p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
