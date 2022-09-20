@@ -10,10 +10,23 @@ import 'package:hot_drop/screens/loginpage.dart';
 import 'package:hot_drop/screens/mainpage.dart';
 import 'package:hot_drop/screens/progressdialog.dart';
 import 'package:hot_drop/screens/registrationpage.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
+import 'package:flutter/foundation.dart' show defaultTargetPlatform, kIsWeb;
+import 'package:hot_drop/screens/testscreen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    name: 'db2',
+    options: FirebaseOptions(
+      databaseURL: "https://hotdrop-5f134-default-rtdb.firebaseio.com",
+      appId: "1:806499409143:android:8295729db7f7ed820a47f2",
+      apiKey: "AIzaSyBv3aPHCGWaBLa0qHUQehi3zGtAGeffv-I",
+      projectId: 'hotdrop-5f134',
+      messagingSenderId: '806499409143',
+    ),
+  );
+
   runApp(
     MainApp(),
   );
@@ -28,8 +41,9 @@ class MainApp extends StatelessWidget {
         primarySwatch: Colors.blueGrey,
         fontFamily: 'boltRegular',
       ),
-      initialRoute: LoginPage.id,
+      initialRoute: MyWidget.id,
       routes: {
+        MyWidget.id: (context) => MyWidget(),
         RegistrationPage.id: (context) => RegistrationPage(),
         LoginPage.id: (context) => LoginPage(),
         Homepage.id: (context) => Homepage(),
