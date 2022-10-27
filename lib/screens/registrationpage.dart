@@ -3,6 +3,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hot_drop/Widgets/customs.dart';
 import 'package:hot_drop/colors/brand_colors.dart';
@@ -92,6 +93,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               internet != ConnectivityResult.wifi) {
                             Fluttertoast.showToast(
                                 msg: "No internet Connection");
+                                
                           } else {
                             signUp();
                           }
@@ -139,18 +141,22 @@ class _RegistrationPageState extends State<RegistrationPage> {
         builder: (BuildContext context) =>
             ProgressDialog(status: "Please wait"),
       );
-      await _auth
+      final user = await _auth
           .createUserWithEmailAndPassword(
               email: newEmailController.text,
               password: newPasswordController.text)
-          .then((value) => senddata(nameController.text, phoneController.text,
-              newEmailController.text));
+          .catchError((ex) {
+        PlatformException thisEx = ex;
+        Fluttertoast.showToast(msg: thisEx.message.toString());
+      });
+      senddata(
+          nameController.text, phoneController.text, newEmailController.text);
 
       Fluttertoast.showToast(
           msg: "Registration Complete",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.CENTER);
-      Navigator.pop(context);
+      // Navigator.pop(context);
       Navigator.pushReplacementNamed(context, Homepage.id).catchError((e) {
         Navigator.pop(context);
         Fluttertoast.showToast(msg: e!.message);
@@ -173,6 +179,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
     nameController.clear();
     newEmailController.clear();
     phoneController.clear();
+    passwordController.clear();
   }
   // void senddata() async {
   //   databaseRef.child("hotdrop").push().set({

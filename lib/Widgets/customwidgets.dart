@@ -1,10 +1,12 @@
-// ignore_for_file: import_of_legacy_library_into_null_safe, prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors
+// ignore_for_file: import_of_legacy_library_into_null_safe, prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, unnecessary_null_comparison
 
 import 'package:flutter/material.dart';
 import 'package:hot_drop/Widgets/branddivider.dart';
 import 'package:hot_drop/Widgets/styles.dart';
 import 'package:hot_drop/colors/brand_colors.dart';
+import 'package:hot_drop/dataproviders/appdata.dart';
 import 'package:outline_material_icons/outline_material_icons.dart';
+import 'package:provider/provider.dart';
 
 class HomeWidget extends StatelessWidget {
   @override
@@ -25,7 +27,7 @@ class HomeWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Home",
+                "Add Home",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               Text(
