@@ -10,6 +10,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hot_drop/Widgets/branddivider.dart';
 import 'package:hot_drop/Widgets/customwidgets.dart';
 import 'package:hot_drop/api_helper/request_methods.dart';
+import 'package:hot_drop/screens/search_page.dart';
 
 class Homepage extends StatefulWidget {
   static String id = "Mainpage";
@@ -242,33 +243,39 @@ class _HomepageState extends State<Homepage> {
                         SizedBox(
                           height: 10,
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(4),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black12,
-                                blurRadius: 5,
-                                spreadRadius: 0.5,
-                                offset: Offset(0.7, 0.7),
-                              )
-                            ],
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.search,
-                                  color: Colors.blueAccent,
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text("Seach Destination"),
-                                Container()
+                        GestureDetector(
+                          onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SearchPage())),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(4),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black12,
+                                  blurRadius: 5,
+                                  spreadRadius: 0.5,
+                                  offset: Offset(0.7, 0.7),
+                                )
                               ],
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.search,
+                                    color: Colors.blueAccent,
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text("Seach Destination"),
+                                  Container()
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -295,4 +302,5 @@ class _HomepageState extends State<Homepage> {
   //   Navigator.of(context)
   //       .pushReplacement(MaterialPageRoute(builder: (context) => LoginPage()));
   // }
+  Future<void> getDirection(LatLng origin) async {}
 }
